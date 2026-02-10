@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script></head>
+<body class="min-h-200">
+    
+    <section class="flex justify-center">
+
+        <div class="text-center mt-10">
+            <img class="h-100" src="images/emoticon-rose-23163792.webp" alt="">
+
+            <p class="mt-4 text-xl">
+                Can you be my nigger this <span class="text-red-500 font-bold">Valentines</span>?
+            </p>
+        </div>
+    </section>
+
+<!-- buttons -->
+
+    <section class="mt-10 flex justify-center text-center gap-20">
+
+        <button id="yes" class="cursor-pointer text-white px-10 py-2 bg-green-500 rounded-xl hover:bg-green-600">yes</button>
+
+
+        <button id="no" class="cursor-pointer text-white px-10 py-2 bg-red-500 rounded-xl hover:bg-red-600">no</button>
+
+    </section>
+
+<!-- yes gif -->
+
+    <section id="yesyes" class="opacity-0 pointer-events-none transition-opacity duration-1000 bg-white -mt-150 flex flex-col justify-center items-center text-center z-50">
+        <img src="images/e993d191d03335fd09a1987db3f8d39a.gif" alt="">
+
+        <div class="-mt-100">
+            <img class="h-70" src="images/fabc065b6a102ff2d85f8e5298342199.jpg" alt="">
+
+            <p class="text-4xl">YAAAAAAY!!!!!</p>
+        </div>
+    </section>
+
+<!-- no gif -->
+
+    <section id="nono" class="hidden fixed top-0 left-0 w-screen h-screen bg-black flex justify-center items-center z-50">
+        <img id="nogif" class="w-screen h-screen object-cover" src="images/gonjiam-gonjiam-haunted-asylum.gif" alt="">
+    </section>
+
+    <audio id="yay" src="sounds/Yayyy! Sound Effect.mp3"></audio>
+
+    <audio id="whisper" src="sounds/helamangile-whisper-voices-1-193087.mp3"></audio>
+
+    <script>
+        const nobtn = document.getElementById("no");
+        const yesbtn = document.getElementById("yes");
+        const yesgif = document.getElementById("yesyes");
+        const nogif = document.getElementById("nono");
+        const yessound = document.getElementById("yay");
+        const nosound = document.getElementById("whisper");
+        let click = 0
+
+        yesbtn.addEventListener("click", () => {
+            yesgif.classList.remove("opacity-0", "pointer-events-none");
+            yesgif.classList.add("opacity-100");
+            yessound.play()
+        })        
+
+        nobtn.addEventListener("click", () => {
+            click++;
+
+            if (click === 1) {
+                nobtn.textContent = "please?";
+            } else if (click === 2) {
+                nobtn.textContent = "pleaseeee?";
+            } else if (click === 3) {
+                nobtn.textContent = "bro please";
+            } else if (click === 4) {
+                nobtn.textContent = "dude..";
+            } else if (click === 5) {
+                nobtn.textContent = "..please?";
+            } else if (click === 6) {
+                nobtn.textContent = "...fine.";
+            } else if (click === 7) {
+                nosound.play();
+
+                setTimeout(() => {
+                        nogif.classList.remove("hidden");
+                }, 1000);
+
+            }
+        })
+    </script>
+
+
+</body>
+</html>
